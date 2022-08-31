@@ -1,0 +1,7 @@
+@import '@styles/core';
+
+.main {
+  grid-area: main;
+
+  @include flex-column();
+}

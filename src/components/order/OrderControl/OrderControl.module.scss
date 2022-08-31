@@ -1,0 +1,24 @@
+@import '@styles/core';
+
+.wrapper {
+  column-gap: var(--gutter);
+  margin-left: auto;
+
+  @include flex-align-center();
+}
+
+.button {
+  width: 264px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.cancel {
+  width: 224px;
+  background-color: clr(platinum);
+
+  &:hover {
+    color: clr(primary-hover);
+    background-color: clr(platinum, 0.5);
+  }
+}

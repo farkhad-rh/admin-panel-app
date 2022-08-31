@@ -1,0 +1,89 @@
+@import '@styles/core';
+
+.wrapper {
+  row-gap: 24px;
+  background-color: #fff;
+  box-shadow: var(--shadow-2);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+
+  @include flex-column();
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+
+  h5 {
+    letter-spacing: 0.02em;
+  }
+}
+
+.status {
+  column-gap: 4px;
+  width: auto;
+  text-transform: uppercase;
+  background-color: clr(default);
+  border-radius: var(--radius);
+  padding: 4px 12px;
+
+  @include flex-center(flex);
+  @include font(12, 600, 12);
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &.isWaiting {
+    color: #fff;
+    background-color: clr(success);
+  }
+
+  &.isSuccess {
+    color: clr(primary);
+    background-color: clr(blizzard);
+  }
+
+  &.isCancel {
+    color: clr(danger);
+    background-color: clr(danger-light);
+  }
+}
+
+.info {
+  row-gap: 8px;
+  line-height: 24px;
+
+  @include flex-column();
+}
+
+.row {
+  column-gap: 8px;
+  row-gap: 4px;
+
+  @include flex-align-center();
+
+  &.isReason {
+    flex-wrap: wrap;
+
+    .value {
+      width: 100%;
+      max-width: 100%;
+      white-space: normal;
+    }
+  }
+}
+
+.label {
+  flex-shrink: 0;
+  width: 152px;
+  color: clr(gray-light);
+
+  @include flex-align-center();
+}
+
+.value {
+  max-width: 156px;
+
+  @include ellipsis();
+}

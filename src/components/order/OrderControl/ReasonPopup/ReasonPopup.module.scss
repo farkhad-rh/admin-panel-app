@@ -1,0 +1,46 @@
+@import '@styles/core';
+
+.form {
+  row-gap: var(--gutter);
+
+  @include flex-column();
+}
+
+.title {
+  justify-content: space-between;
+  font-family: ff(alt);
+
+  @include flex-align-center();
+  @include font(18, 600, 24);
+}
+
+.close {
+  background-color: transparent;
+
+  &:hover {
+    background-color: clr(default);
+  }
+}
+
+.reason {
+  input {
+    @include placeholder(clr(primary));
+  }
+}
+
+.buttons {
+  justify-content: space-between;
+  column-gap: 8px;
+  padding-top: 24px;
+
+  @include flex-align-center();
+}
+
+.cancel {
+  flex-shrink: 0;
+  width: 160px;
+}
+
+.confirm {
+  width: 100%;
+}

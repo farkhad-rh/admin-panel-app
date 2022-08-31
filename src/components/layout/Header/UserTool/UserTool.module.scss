@@ -1,0 +1,43 @@
+@import '@styles/core';
+
+.user {
+  justify-content: space-between;
+  min-width: 165px;
+  line-height: 30px;
+  color: clr(gray-dark);
+  background-color: #fff;
+  box-shadow: var(--shadow-2);
+
+  &:before {
+    display: none;
+  }
+
+  svg {
+    @include transition(transform);
+  }
+
+  &:hover,
+  &:focus {
+    color: clr(primary-hover);
+    background-color: #fff;
+  }
+}
+
+.isOpen {
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.popover {
+  button {
+    font-size: 16px;
+    padding: 8px 16px;
+    margin: 0 -16px;
+
+    &:hover {
+      color: clr(primary);
+      background-color: clr(default);
+    }
+  }
+}

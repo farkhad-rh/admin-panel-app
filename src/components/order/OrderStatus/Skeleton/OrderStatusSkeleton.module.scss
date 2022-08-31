@@ -1,0 +1,9 @@
+@import '@styles/core';
+
+.skeleton {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: var(--shadow-2);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+}

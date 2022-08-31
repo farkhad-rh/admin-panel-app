@@ -1,0 +1,85 @@
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: ff(alt);
+}
+
+h1,
+.h1 {
+  @include font(72, 800, 80);
+}
+
+h2,
+.h2 {
+  @include font(36, 800, 48, 0.02em);
+}
+
+h3,
+.h3 {
+  @include font(28, 600, 42);
+}
+
+h4,
+.h4 {
+  @include font(24, 600, 30, 0.02em);
+}
+
+h5,
+.h5 {
+  @include font(18, 700, 24);
+}
+
+h6,
+.h6 {
+  @include font(16, 700, 26, 0.04em);
+}
+
+p,
+.text-regular {
+  @include font(14, 400, 24, -0.006em);
+}
+
+.text {
+  &-link {
+    font-family: ff(alt);
+
+    @include font(14, 500, 20);
+
+    &-bold {
+      @include font(14, 700, 24);
+    }
+  }
+
+  &-help {
+    @include font(12, 400, 16);
+
+    &-min {
+      @include font(8, 600, 8);
+    }
+  }
+
+  &-price {
+    font-family: ff(alt);
+
+    @include font(18, 800, 32, 0.02em);
+
+    &-max {
+      font-family: ff(alt);
+
+      @include font(24, 800, 32, 0.02em);
+    }
+  }
+
+  &-month {
+    @include font(18, 700, 32, 0.02em);
+  }
+}

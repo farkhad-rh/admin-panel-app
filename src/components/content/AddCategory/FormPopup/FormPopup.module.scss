@@ -1,0 +1,33 @@
+@import '@styles/core';
+
+.form {
+  row-gap: var(--gutter);
+  width: 464px;
+
+  @include flex-column();
+}
+
+.title {
+  @include font(18, 600, 24);
+}
+
+.fields {
+  row-gap: var(--gutter);
+
+  @include flex-column();
+}
+
+.buttons {
+  justify-content: space-between;
+  padding: 24px 0;
+
+  @include flex-align-center();
+}
+
+.button {
+  width: 200px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  @include font(14, 600, 24);
+}

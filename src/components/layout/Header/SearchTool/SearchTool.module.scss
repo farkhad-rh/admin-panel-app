@@ -1,0 +1,26 @@
+@import '@styles/core';
+
+.field {
+  position: relative;
+  margin-right: auto;
+
+  svg {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    color: clr(gray-dark);
+  }
+}
+
+.input {
+  height: 54px;
+  min-width: 264px;
+  background-color: #fff;
+  box-shadow: var(--shadow-2);
+  border-radius: var(--radius);
+  padding-right: 16px;
+  padding-left: 48px;
+
+  @include font(16, 400, 24);
+  @include placeholder(clr(gray-light));
+}

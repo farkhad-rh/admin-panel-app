@@ -1,0 +1,160 @@
+@import '@styles/core';
+
+.button {
+  position: relative;
+  gap: 8px;
+  border-radius: var(--radius);
+  padding: 12px 0;
+
+  @include flex-center(inline-flex);
+  @include font(16, 600, 24);
+
+  &:before {
+    content: '';
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+
+    @include position(absolute);
+    @include transition(border-color);
+  }
+
+  svg {
+    position: relative;
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+
+  & > span {
+    position: relative;
+  }
+
+  &:focus {
+    &:before {
+      border-color: clr(success);
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+.xs {
+  padding-right: 12px;
+  padding-left: 12px;
+
+  @include font(14, 600, 18);
+}
+
+.sm {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.md {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.lg {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+.default {
+  color: clr(primary);
+  background-color: clr(default);
+
+  &:focus,
+  &:hover {
+    background-color: clr(default-hover);
+  }
+
+  &.isActive {
+    color: #fff;
+    background-color: clr(primary);
+  }
+
+  &:disabled,
+  &.isDisabled {
+    color: clr(disabled);
+  }
+}
+
+.primary {
+  color: #fff;
+  background-color: clr(primary);
+
+  &:focus,
+  &:hover,
+  &.isActive {
+    background-color: clr(primary-hover);
+  }
+
+  &:disabled,
+  &.isDisabled {
+    background-color: clr(disabled);
+  }
+}
+
+.ghost {
+  color: #fff;
+  background-color: transparent;
+
+  &:before {
+    border-width: 1px;
+    border-color: #fff;
+  }
+
+  &:focus,
+  &:hover {
+    color: clr(primary);
+    background-color: #fff;
+  }
+
+  &:focus {
+    &:before {
+      border-color: clr(primary);
+    }
+  }
+
+  &.isActive {
+    background-color: clr(primary);
+
+    &:before {
+      border-color: clr(primary);
+    }
+  }
+
+  &:disabled,
+  &.isDisabled {
+    background-color: clr(disabled);
+    border-color: clr(disabled);
+
+    &:before {
+      border-color: clr(disabled);
+    }
+  }
+}
+
+.isActive {
+  &:focus {
+    &:before {
+      border-color: transparent;
+    }
+  }
+}
+
+.isDisabled {
+  cursor: default;
+  user-select: none;
+  pointer-events: none;
+
+  &:focus {
+    &:before {
+      border-color: transparent;
+    }
+  }
+}

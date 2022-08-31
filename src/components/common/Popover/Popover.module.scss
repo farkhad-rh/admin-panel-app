@@ -1,0 +1,37 @@
+@import '@styles/core';
+
+.popover {
+  position: fixed;
+  background-color: #fff;
+  box-shadow: var(--shadow-4);
+  border-radius: 6px;
+  padding: 8px 16px;
+  z-index: 111;
+
+  @include flex-column();
+
+  button {
+    column-gap: 10px;
+    padding: 16px 8px;
+
+    @include flex-align-center();
+    @include font(14, 600, 24, -0.006em);
+
+    &:not(:last-child) {
+      border-bottom: 1px solid clr(border);
+    }
+
+    &:hover {
+      color: clr(primary-hover);
+    }
+  }
+}
+
+.overlay {
+  background-color: clr(gray-dark);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  z-index: 90;
+
+  @include position(fixed);
+}

@@ -1,0 +1,36 @@
+@import '@styles/core';
+
+.container {
+  padding: var(--gutter);
+  z-index: 111;
+
+  @include position(fixed);
+  @include flex-center(flex);
+}
+
+.popup {
+  min-width: 472px;
+  max-height: 600px;
+  background-color: #fff;
+  border-radius: var(--radius);
+  padding: 24px;
+
+  @include flex-column();
+}
+
+.overlay {
+  background-color: clr(gray-dark);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  z-index: -2;
+
+  @include position(fixed);
+}
+
+.lock {
+  cursor: wait;
+  user-select: none;
+  z-index: -1;
+
+  @include position(fixed);
+}

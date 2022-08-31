@@ -1,0 +1,8 @@
+@import '@styles/core';
+
+.wrapper {
+  row-gap: 32px;
+  width: 512px;
+
+  @include flex-column();
+}

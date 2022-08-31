@@ -1,0 +1,36 @@
+@import '@styles/core';
+
+.form {
+  row-gap: var(--gutter);
+
+  @include flex-column();
+}
+
+.code {
+  input {
+    @include placeholder(clr(placeholder));
+  }
+}
+
+.buttons {
+  column-gap: 8px;
+  margin-top: 58px;
+
+  @include flex-align-center();
+}
+
+.button {
+  font-size: 18px;
+  font-weight: 400;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.back {
+  width: 236px;
+}
+
+.confirm {
+  width: 336px;
+  background-color: clr(teal-3);
+}

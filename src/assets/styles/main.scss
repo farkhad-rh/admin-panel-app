@@ -1,0 +1,8 @@
+// Core
+@import 'core/variables', 'core/functions', 'core/mixins';
+
+// Base
+@import 'base/reset', 'base/general', 'base/typography';
+
+// Layout
+@import 'layout/container';

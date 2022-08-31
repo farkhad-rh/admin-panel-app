@@ -1,0 +1,119 @@
+@use 'sass:map';
+
+// Breakpoint Values
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// Set Responsive Breakpoint Value
+@mixin breakpoint($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map.get($breakpoints, $breakpoint);
+
+    @media (min-width: calc($breakpoint-value)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// Set Grid Style
+@mixin grid($columns, $gutter) {
+  display: grid;
+  grid-template-columns: $columns;
+  gap: $gutter;
+}
+
+// Set Grid Repeat Style
+@mixin grid-repeat($width, $gutter) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($width, 1fr));
+  gap: $gutter;
+}
+
+// Set Postition Style
+@mixin position($position) {
+  position: $position;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// Set Flex Column Style
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
+// Set Flex Center Style
+@mixin flex-center($display) {
+  display: $display;
+  align-items: center;
+  justify-content: center;
+}
+
+// Set Flex Vertical Style
+@mixin flex-align-center() {
+  display: flex;
+  align-items: center;
+}
+
+// Set Flex Horizontal Style
+@mixin flex-justify-center() {
+  display: flex;
+  justify-content: center;
+}
+
+// Set Font Settings
+@mixin font($font-size, $font-weight, $line-height: inherit, $letter-spacing: normal) {
+  font-size: $font-size + px;
+  font-weight: $font-weight;
+  line-height: $line-height + px;
+  letter-spacing: $letter-spacing;
+}
+
+// Set Text Ellipsis
+@mixin ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// Set Multiline Text Ellipsis
+@mixin line-ellipsis($line) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Set Tansition Style
+@mixin transition($property) {
+  transition-property: $property;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+// Set Placeholder Style
+@mixin placeholder($color, $focus: true) {
+  &::placeholder {
+    color: $color;
+
+    @include transition(color);
+  }
+
+  @if $focus {
+    &:focus {
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+}

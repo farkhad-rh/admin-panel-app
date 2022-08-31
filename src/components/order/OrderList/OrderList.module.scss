@@ -1,0 +1,20 @@
+@import '@styles/core';
+
+.button {
+  background-color: clr(platinum);
+
+  svg {
+    @include transition(transform);
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: clr(primary-hover);
+  }
+}
+
+.isSort {
+  svg {
+    transform: rotate(180deg);
+  }
+}

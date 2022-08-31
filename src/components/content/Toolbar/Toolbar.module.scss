@@ -1,0 +1,24 @@
+@import '@styles/core';
+
+.toolbar {
+  min-height: 48px;
+  margin-bottom: 24px;
+
+  @include flex-align-center();
+}
+
+.title {
+  column-gap: 8px;
+  margin-right: auto;
+
+  @include flex-align-center();
+  @include font(24, 700, 32);
+
+  span {
+    background-color: #e6dac0;
+    border-radius: var(--radius);
+    padding: 4px 16px;
+
+    @include font(14, 500, 20);
+  }
+}

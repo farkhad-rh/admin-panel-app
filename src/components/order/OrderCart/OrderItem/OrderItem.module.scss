@@ -1,0 +1,50 @@
+@import '@styles/core';
+
+.item {
+  column-gap: var(--gutter);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 44px;
+
+  @include flex-align-center();
+
+  &:not(:last-child) {
+    border-bottom: 1px solid clr(border);
+  }
+}
+
+.image {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+
+  @include flex-center(flex);
+
+  img {
+    width: 100%;
+    height: auto;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: var(--radius);
+  }
+}
+
+.info {
+  row-gap: 2px;
+
+  @include flex-column();
+}
+
+.name {
+  line-height: 24px;
+}
+
+.cost {
+  column-gap: 72px;
+
+  @include flex-align-center();
+}
+
+.price {
+  min-width: 184px;
+}

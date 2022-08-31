@@ -1,0 +1,38 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: ff(base);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: clr(primary);
+  overflow-x: hidden;
+
+  @include font(14, 600, 18);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+a {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+
+  @include transition((color, background-color, text-decoration-color, opacity));
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @include transition((color, background-color, box-shadow));
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+}

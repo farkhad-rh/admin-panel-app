@@ -1,0 +1,15 @@
+@import '@styles/core';
+
+.header {
+  position: sticky;
+  column-gap: var(--gutter);
+  top: var(--gutter);
+  height: 54px;
+  grid-area: header;
+
+  @include flex-align-center();
+}
+
+.search {
+  margin-right: auto;
+}

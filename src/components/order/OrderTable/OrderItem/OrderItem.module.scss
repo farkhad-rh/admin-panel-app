@@ -1,0 +1,76 @@
+@import '@styles/core';
+
+.item {
+  column-gap: 32px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 14px 20px;
+
+  @include flex-align-center();
+  @include transition((color, box-shadow, border-radius));
+
+  &:hover {
+    box-shadow: var(--shadow-4);
+    border-radius: var(--radius);
+
+    .arrow {
+      color: clr(primary-hover);
+    }
+  }
+}
+
+.column {
+  flex-shrink: 0;
+  width: 12%;
+}
+
+.address,
+.name {
+  width: 20%;
+}
+
+.name {
+  width: 20%;
+}
+
+.status {
+  column-gap: 4px;
+  width: auto;
+  text-transform: uppercase;
+  background-color: clr(default);
+  border-radius: var(--radius);
+  padding: 4px 12px;
+  margin-right: auto;
+
+  @include flex-center(flex);
+  @include font(12, 600, 12);
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &.isWaiting {
+    color: #fff;
+    background-color: clr(success);
+  }
+
+  &.isSuccess {
+    color: clr(primary);
+    background-color: clr(blizzard);
+  }
+
+  &.isCancel {
+    color: clr(danger);
+    background-color: clr(danger-light);
+  }
+}
+
+.arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  color: clr(gray-light);
+
+  @include flex-center(flex);
+  @include transition(color);
+}

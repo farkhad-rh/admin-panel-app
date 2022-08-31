@@ -1,0 +1,58 @@
+@import '@styles/core';
+
+.wrapper {
+  row-gap: 8px;
+  background-color: #fff;
+  box-shadow: var(--shadow-2);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+
+  @include flex-column();
+}
+
+.title {
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.info {
+  display: flex;
+  column-gap: 4px;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  color: clr(gray-light);
+
+  @include flex-center(flex);
+}
+
+.list {
+  row-gap: 8px;
+  line-height: 24px;
+  margin-top: 4px;
+
+  @include flex-column();
+}
+
+.row {
+  column-gap: 8px;
+
+  @include flex-align-center();
+}
+
+.label {
+  flex-shrink: 0;
+  width: 120px;
+  color: clr(gray-light);
+
+  @include flex-align-center();
+}
+
+.value {
+  max-width: 156px;
+
+  @include ellipsis();
+}

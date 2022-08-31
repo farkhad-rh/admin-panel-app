@@ -1,0 +1,219 @@
+@import '@styles/core';
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.company {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  background-color: clr(primary);
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+  animation: slideLeft 0.5s 1s linear forwards;
+  padding: 28px 24px;
+}
+
+.logo {
+  position: relative;
+  width: 218px;
+  height: 52px;
+  opacity: 0;
+  animation: fadeIn 0.5s 1.6s linear forwards;
+  z-index: 1;
+}
+
+.letter {
+  position: absolute;
+  top: calc(50% - (52px / 2));
+  left: calc(50% - (47px / 2));
+  width: 47px;
+  height: 52px;
+  opacity: 0;
+  animation: moveLeft 0.5s 1s linear forwards, pulse 0.5s linear infinite alternate;
+  z-index: 1;
+}
+
+.abstract {
+  position: absolute;
+  top: -425px;
+  left: -289px;
+  width: 824.68px;
+  height: 941.16px;
+  transform: rotate(180deg);
+  z-index: 0;
+}
+
+%triangle {
+  position: absolute;
+  background-color: rgba(#000, 0.01);
+  border: 1px solid transparent;
+  box-shadow: inset 0px 0px 93.1839px rgba(#6beb9e, 0.5);
+}
+
+@for $i from 1 through 20 {
+  .triangle_#{$i} {
+    @extend %triangle;
+
+    $top: 231.78 - 47.13px + 0.05px * $i;
+    $left: 83.92 - 23.33px + 1.05px * $i;
+
+    $size: 69.89px;
+    $width: 724.5 + $size * $i;
+    $height: 591.72 + $size * $i;
+
+    $radius: 58.2399 + 34.944px * $i;
+
+    $scaleSize: 0;
+    $scale: 1 - $scaleSize * $i;
+    $skewSize: 0.07;
+    $skew: -0.21 + $skewSize * $i;
+
+    @if $i == 1 {
+      $scale: 0.99 - $scaleSize * $i;
+    }
+
+    @if $i == 5 {
+      $scale: 0.99 - $scaleSize * $i;
+    }
+
+    @if $i > 5 {
+      $scaleSize: 0.02;
+      $scale: 1 - $scaleSize * ($i - 5);
+    }
+
+    @if $i == 7 {
+      $skewSize: 0.06;
+      $skew: 0.21 + $skewSize * ($i - 6);
+    }
+
+    @if $i > 7 {
+      $skewSize: 0.07;
+      $skew: 0.27 + $skewSize * ($i - 7);
+    }
+
+    @if $i > 8 {
+      $scaleSize: 0.03;
+      $scale: 0.94 - $scaleSize * ($i - 8);
+    }
+
+    @if $i > 9 {
+      $skewSize: 0.06;
+      $skew: 0.41 + $skewSize * ($i - 9);
+    }
+
+    @if $i > 11 {
+      $scaleSize: 0.04;
+      $scale: 0.85 - $scaleSize * ($i - 11);
+    }
+
+    @if $i > 12 {
+      $skewSize: 0.05;
+      $skew: 0.59 + $skewSize * ($i - 12);
+    }
+
+    @if $i > 13 {
+      $scaleSize: 0.05;
+      $scale: 0.77 - $scaleSize * ($i - 13);
+    }
+
+    @if $i > 16 {
+      $scaleSize: 0.06;
+      $scale: 0.62 - $scaleSize * ($i - 16);
+      $skewSize: 0.04;
+      $skew: 0.79 + $skewSize * ($i - 16);
+    }
+
+    @if $i > 18 {
+      $skewSize: 0.03;
+      $skew: 0.87 + $skewSize * ($i - 18);
+    }
+
+    top: calc(50% - #{$height} / 2 + #{$top});
+    left: calc(50% - #{$width} / 2 + #{$left});
+    width: $width;
+    height: $height;
+    border-radius: $radius;
+    opacity: 0;
+    transform: matrix($scale, $skew, $skew, -#{$scale}, 0, 0);
+    animation: fadeIn#{$i} 0.3s (0.1s * $i + 1.9s) linear forwards,
+      shadowIn#{$i} 0.3s (1s * ($i * 0.3) + 1.9s) linear forwards;
+    z-index: 21 - $i;
+  }
+}
+
+.form {
+  width: 100%;
+  opacity: 0;
+  animation: fadeIn 0.5s 1.6s linear forwards;
+  padding: 28px 104px;
+
+  @include flex-align-center();
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 43.334%;
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    top: calc(50% - (52px / 2));
+    left: calc(50% - (47px / 2));
+  }
+
+  to {
+    top: 28px;
+    left: 24px;
+  }
+}
+
+@for $i from 0 through 20 {
+  @keyframes fadeIn#{$i} {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1.05 - 0.05 * $i;
+    }
+  }
+
+  @keyframes shadowIn#{$i} {
+    from {
+      border-color: transparent;
+    }
+
+    to {
+      border-color: clr(teal-6);
+    }
+  }
+}

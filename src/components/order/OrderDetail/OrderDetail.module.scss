@@ -1,0 +1,46 @@
+@import '@styles/core';
+
+.wrapper {
+  display: flex;
+  flex-flow: wrap;
+  gap: 24px;
+  height: calc(100vh - 54px - 38px - var(--gutter) * 2);
+}
+
+.about {
+  flex-shrink: 0;
+  row-gap: var(--gutter);
+  width: 360px;
+  height: calc(100% - 54px - 24px);
+
+  @include flex-column();
+}
+
+.cart {
+  row-gap: var(--gutter);
+  width: calc(100% - 360px - 24px);
+  height: calc(100% - 54px - 24px);
+
+  @include flex-column();
+}
+
+.buttons {
+  width: 100%;
+  margin-top: auto;
+
+  @include flex-align-center();
+}
+
+.button {
+  column-gap: var(--gutter);
+  width: 168px;
+  font-size: 18px;
+  background-color: clr(platinum);
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  &:hover {
+    color: clr(primary-hover);
+    background-color: clr(platinum, 0.5);
+  }
+}

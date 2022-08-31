@@ -1,0 +1,108 @@
+@import '@styles/core';
+
+.checkbox {
+  cursor: pointer;
+  user-select: none;
+
+  @include flex-align-center();
+
+  input {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.icon {
+  --size: 16px;
+
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  color: #fff;
+  border: 1px solid clr(gray-dark);
+
+  @include flex-center(flex);
+  @include transition((background-color, border-color, box-shadow));
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: calc(var(--size) * 3);
+    height: calc(var(--size) * 3);
+    box-shadow: inset 0 0 0 calc(var(--size) * 3 / 2) transparent;
+    border-radius: 50%;
+    opacity: 0;
+    margin: auto;
+  }
+
+  svg {
+    width: calc(var(--size) / 2);
+    height: calc(var(--size) / 2);
+    opacity: 0;
+    transform: scale(0.5);
+
+    @include transition((opacity, transform));
+  }
+}
+
+.square {
+  .icon {
+    border-radius: calc(var(--size) / 8);
+  }
+}
+
+.ellipse {
+  .icon {
+    border-radius: 50%;
+  }
+}
+
+.isChecked {
+  .icon {
+    background-color: clr(success);
+    border-color: transparent;
+
+    &:after {
+      animation: pulseIn 0.5s ease-out forwards;
+    }
+
+    svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &.isDisabled {
+    .icon {
+      background-color: clr(gray-light);
+      border-color: transparent;
+    }
+  }
+}
+
+.isDisabled {
+  cursor: default;
+  pointer-events: none;
+
+  .icon {
+    border-color: clr(border);
+  }
+}
+
+@keyframes pulseIn {
+  0% {
+    opacity: 1;
+    transform: scale3d(0.4, 0.4, 1);
+  }
+
+  80% {
+    box-shadow: inset 0 0 0 2px clr(success);
+    opacity: 0.1;
+  }
+
+  100% {
+    box-shadow: inset 0 0 0 2px clr(success);
+    opacity: 0;
+    transform: scale3d(1.2, 1.2, 1);
+  }
+}

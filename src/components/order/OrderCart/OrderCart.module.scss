@@ -1,0 +1,67 @@
+@import '@styles/core';
+
+.wrapper {
+  row-gap: var(--gutter);
+  max-height: 100%;
+
+  @include flex-column();
+}
+
+.title {
+  letter-spacing: 0.02em;
+}
+
+.list {
+  row-gap: 8px;
+  max-height: 100%;
+  overflow: auto;
+  padding: 8px;
+  padding-top: 0;
+  margin: -8px;
+  margin-top: 0;
+
+  @include flex-column();
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: clr(border);
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: clr(secondary);
+    border-radius: 2px;
+  }
+}
+
+.total {
+  justify-content: flex-end;
+  column-gap: 24px;
+  padding: 0 16px;
+
+  @include flex-align-center();
+}
+
+.label {
+  font-size: 16px;
+  line-height: 24px;
+  color: clr(gray-dark);
+}
+
+.number {
+  font-family: ff(alt);
+  text-align: right;
+
+  @include font(18, 800, 32, 0.02em);
+}
+
+.count {
+  min-width: 80px;
+}
+
+.price {
+  min-width: 184px;
+}

@@ -1,0 +1,68 @@
+@import '@styles/core';
+
+.sidebar {
+  position: sticky;
+  top: var(--gutter);
+  width: 272px;
+  max-height: calc(100vh - var(--gutter) * 2);
+  background-color: #fff;
+  box-shadow: var(--shadow-2);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  grid-area: sidebar;
+  padding: 24px;
+
+  @include flex-column();
+
+  .toggle {
+    color: clr(gray-dark);
+    background-color: transparent;
+    margin-top: 24px;
+    margin-right: -24px;
+    margin-bottom: -12px;
+    margin-left: auto;
+
+    &:before {
+      display: none;
+    }
+
+    &:hover {
+      color: clr(primary);
+    }
+  }
+}
+
+.logo {
+  height: 40px;
+  margin-bottom: 64px;
+
+  @include flex-center(flex);
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.menu {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 12px;
+  margin-right: -24px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: clr(border);
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: clr(secondary);
+    border-radius: 2px;
+  }
+}

@@ -1,0 +1,62 @@
+@import '@styles/core';
+
+.vertical {
+  display: flex;
+  column-gap: 24px;
+  height: 100%;
+
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  :global {
+    .tabs {
+      &-nav {
+        flex-shrink: 0;
+        row-gap: 12px;
+        min-width: 264px;
+        background-color: #fff;
+        border-radius: var(--radius);
+        padding: 12px 8px;
+
+        @include flex-column();
+      }
+
+      &-item {
+        justify-content: space-between;
+        row-gap: 5px;
+        font-family: ff(alt);
+        border-radius: var(--radius);
+        cursor: pointer;
+        padding: 12px 8px;
+        padding-left: 16px;
+
+        @include flex-align-center();
+        @include font(16, 600, 24, 0.02em);
+        @include transition((color, background-color));
+
+        button {
+          display: flex;
+          transition: none;
+        }
+
+        &:hover {
+          background-color: clr(default-hover);
+        }
+
+        &.isActive {
+          color: #fff;
+          background-color: clr(secondary);
+        }
+      }
+
+      &-content {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+:global {
+  .tabs-popover {
+    width: 220px;
+  }
+}

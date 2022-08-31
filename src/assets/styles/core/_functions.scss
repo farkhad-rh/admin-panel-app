@@ -1,0 +1,18 @@
+// Set Font Family
+@function ff($name) {
+  @return var(--font-family-#{unquote($name)});
+}
+
+// Get RGB Color
+@function rgb($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+// Set Color
+@function clr($name, $opacity: false) {
+  @if $opacity {
+    @return rgba(var(--color-#{unquote($name)}--rgb), $opacity);
+  } @else {
+    @return var(--color-#{unquote($name)});
+  }
+}

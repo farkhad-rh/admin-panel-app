@@ -1,0 +1,139 @@
+@import '@styles/core';
+
+.field {
+  row-gap: 4px;
+
+  @include flex-column();
+}
+
+.label {
+  font-family: ff(alt);
+
+  @include font(14, 500, 20);
+}
+
+.wrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid clr(border);
+  border-radius: 6px;
+  padding: 7px 15px;
+
+  @include font(14, 400, 24, -0.006em);
+  @include transition(border-color);
+  @include placeholder(clr(placeholder));
+
+  &:focus {
+    border-color: clr(primary);
+
+    &:hover {
+      border-color: clr(primary);
+    }
+  }
+
+  &:hover {
+    border-color: clr(gray-light);
+  }
+
+  &.isLeft {
+    & ~ .icon,
+    & ~ .loader {
+      right: auto;
+      left: 12px;
+    }
+  }
+
+  &.isIcon,
+  &.isLoading {
+    padding-right: 43px;
+
+    &.isLeft {
+      padding-right: 15px;
+      padding-left: 43px;
+    }
+  }
+
+  &.isIcon {
+    &.isLoading {
+      padding-right: 75px;
+
+      & ~ .loader {
+        right: 44px;
+      }
+
+      &.isLeft {
+        padding-right: 15px;
+        padding-left: 75px;
+
+        & ~ .loader {
+          right: auto;
+          left: 44px;
+        }
+      }
+    }
+  }
+
+  &.isError {
+    border-color: clr(danger);
+
+    &:hover {
+      border-color: clr(danger);
+    }
+  }
+
+  &:disabled,
+  &.isDisabled {
+    background-color: clr(default);
+    cursor: default;
+    user-select: none;
+    pointer-events: none;
+
+    & ~ .icon,
+    & ~ .loader {
+      opacity: 0.5;
+    }
+  }
+}
+
+.icon,
+.loader {
+  --size: 24px;
+
+  position: absolute;
+  top: calc(50% - var(--size) / 2);
+  right: 12px;
+  width: var(--size);
+  height: var(--size);
+}
+
+.loader {
+  color: clr(gray-light);
+  animation: spin 0.5s linear infinite;
+}
+
+.note {
+  row-gap: 2px;
+
+  @include flex-column();
+
+  .error {
+    color: clr(danger);
+  }
+
+  .help {
+    color: clr(gray-light);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

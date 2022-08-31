@@ -1,0 +1,103 @@
+@import 'functions';
+@import 'mixins';
+
+// Font Values
+$fonts: (
+  base: '"Open Sans", sans-serif',
+  alt: '"Manrope", sans-serif',
+);
+
+// Color Values
+$colors: (
+  charcoal: #2c424c,
+  slate: #285c5c,
+  gunmetal: #252c32,
+  paolo: #0d9676,
+  grullo: #aa998a,
+  platinum: #ebe8e6,
+  cultured: #f6f5f4,
+
+  blizzard: #c1f4f5,
+  columbia: #c5e4fc,
+
+  teal-1: #1ac19d,
+  teal-2: #38d9b9,
+  teal-3: #0d9676,
+  teal-6: #62e4d3,
+  teal-9: #e4fcfc,
+  teal-10: #f1fdfd,
+
+  red-1: #cc0905,
+  red-2: #f2271c,
+  red-9: #ffefeb,
+
+  yellow-1: #ffc233,
+  yellow-3: #d29404,
+  yellow-9: #fffcc2,
+  yellow-10: #fffeeb,
+);
+
+// Colors Theme Values
+$colorsTheme: (
+  primary: 'charcoal',
+  primary-hover: 'slate',
+  primary-dark: 'gunmetal',
+  secondary: 'grullo',
+  default: 'cultured',
+  default-hover: 'platinum',
+  success: 'teal-1',
+  success-light: 'teal-9',
+  success-extra-light: 'teal-10',
+  danger: 'red-1',
+  danger-light: 'red-9',
+  warning: 'yellow-3',
+  warning-light: 'yellow-9',
+  warning-extra-light: 'yellow-10',
+  border: 'platinum',
+);
+
+:root {
+  // Base Gutter Size
+  --gutter: 16px;
+
+  // Generate Font Variables
+  @if $fonts {
+    @each $key, $value in $fonts {
+      --font-family-#{$key}: #{$value};
+    }
+  }
+
+  // Generate Color Variables
+  @if $colors {
+    @each $key, $value in $colors {
+      --color-#{$key}: #{$value};
+      --color-#{$key}--rgb: #{rgb($value)};
+    }
+
+    // Static Gray Color
+    --color-gray-light: #{clr(primary, 0.5)};
+    --color-gray-dark: #{clr(primary, 0.75)};
+
+    @if $colorsTheme {
+      @each $key, $value in $colorsTheme {
+        --color-#{$key}: var(--color-#{$value});
+        --color-#{$key}--rgb: var(--color-#{$value}--rgb);
+      }
+
+      // Static Color Theme
+      --color-disabled: var(--color-gray-light);
+      --color-placeholder: var(--color-gray-light);
+    }
+  }
+
+  // Base Box Shadow Variables
+  --shadow-1: #{0px 0px 1px clr(primary, 0.1), 0px 1px 2px clr(primary, 0.02)};
+  --shadow-2: #{1px 1px 4px clr(primary, 0.1), 4px 4px 12px clr(primary, 0.02)};
+  --shadow-3: #{0px 0px 1px clr(primary, 0.32), 0px 8px 16px clr(primary, 0.15)};
+  --shadow-4: #{0px 0px 1px clr(primary, 0.32), 0px 12px 24px clr(primary, 0.15)};
+  --shadow-5: #{0px 0px 1px clr(primary, 0.32), 0px 24px 32px clr(primary, 0.15)};
+  --shadow-6: #{0px 0px 1px clr(primary, 0.32), 0px 40px 64px clr(primary, 0.15)};
+
+  // Base Border Radius Variables
+  --radius: 4px;
+}

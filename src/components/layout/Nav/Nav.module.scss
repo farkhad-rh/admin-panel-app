@@ -1,0 +1,65 @@
+@import '@styles/core';
+
+.nav {
+  row-gap: 4px;
+
+  @include flex-column();
+}
+
+.link {
+  position: relative;
+  column-gap: var(--gutter);
+  border-radius: var(--radius);
+  opacity: 0.6;
+  padding: 14px 8px;
+
+  @include flex-align-center();
+  @include font(16, 500, 22);
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+
+    @include transition((opacity, transform));
+  }
+
+  &:before {
+    top: 4px;
+    right: 0;
+    bottom: 4px;
+    left: 0;
+    background-color: clr(default);
+    border-radius: var(--radius);
+  }
+
+  &:after {
+    top: 0;
+    right: -12px;
+    bottom: 0;
+    width: 4px;
+    background-color: clr(primary);
+    border-radius: calc(var(--radius) / 2);
+    transform: translateX(8px);
+  }
+
+  &:hover,
+  &.isActive {
+    opacity: 1;
+  }
+
+  &.isActive {
+    font-weight: 600;
+
+    &:before,
+    &:after {
+      opacity: 1;
+    }
+
+    &:after {
+      transform: translateX(0);
+    }
+  }
+}

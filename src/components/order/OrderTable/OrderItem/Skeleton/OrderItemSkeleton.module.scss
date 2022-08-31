@@ -1,0 +1,19 @@
+@import '@styles/core';
+
+.skeleton {
+  width: 100%;
+  cursor: pointer;
+  padding: 14px 20px;
+
+  @include flex-align-center();
+  @include transition((box-shadow, border-radius));
+
+  &:hover {
+    box-shadow: var(--shadow-4);
+    border-radius: var(--radius);
+
+    .arrow {
+      color: clr(primary-hover);
+    }
+  }
+}

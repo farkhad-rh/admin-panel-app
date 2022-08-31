@@ -1,0 +1,15 @@
+@import '@styles/core';
+
+.area {
+  display: grid;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar main';
+  grid-template-rows: auto 1fr;
+  grid-template-columns: auto 1fr;
+  gap: 38px var(--gutter);
+  min-height: 100vh;
+  background-color: clr(default);
+  padding: 16px 24px;
+  padding-left: 0;
+}
