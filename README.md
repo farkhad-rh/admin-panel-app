@@ -1,1 +1,1 @@
-# admin-app
+# admin-panel-app --- React.js + Redux Toolkit + RTK Query + Vite
